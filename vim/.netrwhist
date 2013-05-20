@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/mnt/keyware/kernel-3.0/drivers/usb/host'
+let g:netrw_dirhist_2='/mnt/rootfs/meta-keyware/recipes/images'
+let g:netrw_dirhist_3='/mnt/rootfs/meta-keyware/recipes'
+let g:netrw_dirhist_4='/mnt/rootfs/oe-core/build/tmp-eglibc/work/i686-linux/classpath-native/0.99-r6.0'
+let g:netrw_dirhist_5='/mnt/rootfs/meta-java/recipes-core/xml-commons'
+let g:netrw_dirhist_6='/tmp/omap-ddt/i2c'
+let g:netrw_dirhist_7='/mnt/rootfs/meta-keyware'

@@ -1,0 +1,2 @@
+cecutil.vba: call delete('C:\Documents and Settings\issuser\vimfiles/plugin/cecutil.vim')|call delete('C:\Documents and Settings\issuser\vimfiles/doc/cecutil.txt')
+DrawIt.vba: call delete('C:\Documents and Settings\issuser\vimfiles/plugin/DrawItPlugin.vim')|call delete('C:\Documents and Settings\issuser\vimfiles/plugin/cecutil.vim')|call delete('C:\Documents and Settings\issuser\vimfiles/autoload/DrawIt.vim')|call delete('C:\Documents and Settings\issuser\vimfiles/doc/DrawIt.txt')

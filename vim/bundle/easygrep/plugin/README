@@ -1,0 +1,14 @@
+this way use grep ,work good in cygwin grep and ubuntu
+but not good in unxUtils
+
+doc:
+http://stackoverflow.com/questions/6573633/how-to-grep-a-string-in-all-the-java-files-in-subdirectories
+
++------------------------------------------+-----------------------+
+|   e   |recursive	                       |     non-recursive     |
++-------+----------------------------------+-----------------------+
+|   *   |grep -r --include=* $word $path   | grep $word $path/*    |
+|   *.c |grep -r --include=*.c $word $path | grep $word $path/*.c  |
+|   a.c |grep -r --include=a.c $word $path | grep $word $path/a.c  |
++------+----------------------------------+-----------------------+
+

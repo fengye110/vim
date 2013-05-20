@@ -1,0 +1,80 @@
+
+#include <sys/stat.h> 
+#include <fcntl.h>
+snippet     open
+abbr        open #include <sys/stat.h> #include <fcntl.h>
+    if ((${4:fd} = open(${1:path},  ${2:O_WRONLY | O_CREAT | O_TRUNC}, ${3:(mode_t)(S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)})) == -1){
+        ${5:perror("Cannot open file\n")}
+    }
+    ${6}
+
+snippet     close
+    close(${1:fd});
+    ${2}
+       
+
+snippet     fopen
+abbr        fopen #include <stdio.h>
+prev_word   '^'
+    if ((${3:fp} = fopen(${1:file}, ${2:"r"})) == NULL){
+        ${4:return};
+    }
+    ${5}
+
+snippet     fclose
+    fclose(${1:fd});
+    ${2}
+
+snippet     malloc
+abbr        #include <stdlib.h>
+    if((${1:ptr} = malloc(${2:nsize})) == NULL){
+        ${3:perror("malloc error!");}
+    }
+    ${4}
+
+snippet     calloc
+abbr        #include <stdlib.h> ,initialized to all bits 0
+    if((${1:ptr} = calloc(${2:nele},${3:nsize})) == NULL){
+        ${4:perror("malloc error!");}
+    }
+    ${5}
+
+snippet     read
+abbr        #include <unistd.h>
+    ${1:bytes} = read(${2:fd}, ${3:buf}, ${4:nbytes});
+    if ( $1 != $4 ){
+        ${5:perror("partial read or error!");}
+    }
+    ${6}
+
+snippet     write
+abbr        #include <unistd.h>
+    ${1:bytes} = write(${2:fd}, ${3:buf}, ${4:nbytes});
+    if ( ${1} != ${4} ){
+        ${6:perror("partial write or error!");}
+    }
+    ${5}
+
+snippet     memset
+abbr        #include <string.h>
+    memset(${1:buf}, ${2:0}, ${3:nbytes});
+    ${5}
+
+snippet     memcpy
+abbr        #include <string.h>
+    memcpy(${1:dst}, ${2:src}, ${3:nbytes});
+    ${5}
+
+
+delete once
+snippet once
+abbr include-guard
+    #ifndef ${1:`toupper(expand('%:t:r'))`_H}
+        #define $1
+
+        ${0}
+    #endif /* end of include $1 */
+
+snippet     socket
+abbr        #include <sys/socket.h>
+    socket(domain, SOCK_STREAM, AF_INIT);
